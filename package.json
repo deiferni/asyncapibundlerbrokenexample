@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "@apidevtools/json-schema-ref-parser": "^11.5.4",
-    "@asyncapi/bundler": "^0.4.0",
-    "@asyncapi/cli": "^1.7.3",
-    "@asyncapi/optimizer": "^0.3.9",
-    "@asyncapi/parser": "^3.0.10"
+    "@apidevtools/json-schema-ref-parser": "^11.6.1",
+    "@asyncapi/bundler": "^0.5.0",
+    "@asyncapi/cli": "^1.9.2",
+    "@asyncapi/optimizer": "^1.0.2",
+    "@asyncapi/parser": "^3.0.14"
   }
 }
