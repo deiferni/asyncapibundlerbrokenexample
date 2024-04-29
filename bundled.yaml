@@ -1,0 +1,32 @@
+asyncapi: 2.6.0
+info:
+  version: 1.4.2
+  title: demo
+defaultContentType: application/json
+channels:
+  task.v1:
+    publish:
+      operationId: publishTaskEvent
+      message:
+        $ref: '#/components/messages/task.v1'
+components:
+  messages:
+    task.v1:
+      name: task.v1
+      contentType: application/cloudevents+json; charset=utf-8
+      payload:
+        $ref: '#/components/schemas/event-task.v1'
+  schemas:
+    event-task.v1:
+      properties:
+        data:
+          $ref: '#/components/schemas/task.v1'
+    task.v1:
+      $schema: http://json-schema.org/draft-07/schema#
+      type: object
+      properties:
+        customerOids:
+          description: A list of customer Oids
+          type: array
+          items:
+            $ref: '#/definitions/customerOidType'
