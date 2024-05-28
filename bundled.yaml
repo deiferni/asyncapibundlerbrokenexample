@@ -8,19 +8,53 @@ channels:
     publish:
       operationId: publishTaskEvent
       message:
-        $ref: '#/components/messages/task.v1'
+        name: task.v1
+        contentType: application/cloudevents+json; charset=utf-8
+        payload:
+          properties:
+            data:
+              $schema: http://json-schema.org/draft-07/schema#
+              type: object
+              properties:
+                customerOids:
+                  description: A list of customer Oids
+                  type: array
+                  items:
+                    type: string
+                    minLength: 1
+                    maxLength: 128
 components:
   messages:
     task.v1:
       name: task.v1
       contentType: application/cloudevents+json; charset=utf-8
       payload:
-        $ref: '#/components/schemas/event-task.v1'
+        properties:
+          data:
+            $schema: http://json-schema.org/draft-07/schema#
+            type: object
+            properties:
+              customerOids:
+                description: A list of customer Oids
+                type: array
+                items:
+                  type: string
+                  minLength: 1
+                  maxLength: 128
   schemas:
     event-task.v1:
       properties:
         data:
-          $ref: '#/components/schemas/task.v1'
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            customerOids:
+              description: A list of customer Oids
+              type: array
+              items:
+                type: string
+                minLength: 1
+                maxLength: 128
     task.v1:
       $schema: http://json-schema.org/draft-07/schema#
       type: object
@@ -29,4 +63,6 @@ components:
           description: A list of customer Oids
           type: array
           items:
-            $ref: '#/definitions/customerOidType'
+            type: string
+            minLength: 1
+            maxLength: 128
