@@ -5,8 +5,7 @@ const { DiagnosticSeverity, Parser } = require('@asyncapi/parser');
 
 async function main() {
   // bundle
-  const YAMLDocument = readFileSync('main.yml', 'utf-8')
-  const bundledDocument = await bundle([YAMLDocument], { referenceIntoComponents: true})
+  const bundledDocument = await bundle('main.yml')
   writeFileSync('bundled.yaml', bundledDocument.yml());
 
   // validate the document
